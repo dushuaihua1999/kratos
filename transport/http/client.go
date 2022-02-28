@@ -248,6 +248,7 @@ func (client *Client) invoke(ctx context.Context, req *http.Request, args interf
 		return reply, nil
 	}
 	if len(client.opts.middleware) > 0 {
+		// 函数
 		h = middleware.Chain(client.opts.middleware...)(h)
 	}
 	_, err := h(ctx, args)
